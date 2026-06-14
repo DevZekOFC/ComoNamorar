@@ -81,20 +81,26 @@ simBtn.addEventListener("click", () => {
 
 // ==================== BOTÃO NÃO ====================
 
+let tentativasNao = 0;
+
+const emojisNao = [
+  "🤧",
+  "😐",
+  "😠",
+  "😡",
+  "😭"
+];
+
 
 function moverNao() {
 
 
   const largura = window.innerWidth - naoBtn.offsetWidth;
-
   const altura = window.innerHeight - naoBtn.offsetHeight;
 
 
-
   const x = Math.random() * largura;
-
   const y = Math.random() * altura;
-
 
 
   naoBtn.style.position = "fixed";
@@ -111,8 +117,24 @@ function moverNao() {
 naoBtn.addEventListener("click", () => {
 
 
-  moverNao();
+  tentativasNao++;
 
+
+  const emoji = document.querySelector(".emoji");
+
+
+  if(tentativasNao < emojisNao.length){
+
+    emoji.innerHTML = emojisNao[tentativasNao];
+
+  } else {
+
+    emoji.innerHTML = "😭";
+
+  }
+
+
+  moverNao();
 
   tryPlayMusic();
 
