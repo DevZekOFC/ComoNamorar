@@ -12,7 +12,6 @@ body {
   color: white;
 }
 
-
 .phone {
   width: 380px;
   max-width: 95%;
@@ -21,7 +20,6 @@ body {
   padding: 20px 12px;
   box-shadow: 0 25px 50px rgba(0,0,0,0.6);
 }
-
 
 .screen {
   background: linear-gradient(180deg,#C8102E,#9F0000);
@@ -36,13 +34,11 @@ body {
   text-align:center;
 }
 
-
 .emoji {
   font-size:170px;
   margin:10px 0 15px;
   filter:drop-shadow(0 10px 20px rgba(0,0,0,.6));
 }
-
 
 h1 {
   font-size:1.55em;
@@ -50,12 +46,10 @@ h1 {
   padding:0 25px;
 }
 
-
 .buttons {
   display:flex;
   gap:25px;
 }
-
 
 button {
   padding:16px 38px;
@@ -66,19 +60,16 @@ button {
   font-weight:bold;
 }
 
-
 #sim {
  background:#580732;
  color:white;
 }
-
 
 #nao {
  background:#6B0000;
  color:white;
  position:relative;
 }
-
 
 .modal {
  display:none;
@@ -91,7 +82,6 @@ button {
  text-align:center;
 }
 
-
 .modal-content {
  background:#1a1a1a;
  padding:35px 25px;
@@ -99,17 +89,14 @@ button {
  max-width:340px;
 }
 
-
 .modal-content h2 {
  color:#50062d;
 }
-
 
 .modal-content button {
  background:#4a4a4a;
  color:white;
 }
-
 
 .heart {
  position:absolute;
@@ -118,15 +105,28 @@ button {
  animation:float 7s infinite linear;
 }
 
-
 @keyframes float {
-
-0% {
- transform:translateY(100vh);
+  0% {
+    transform:translateY(100vh);
+  }
+  100% {
+    transform:translateY(-150px) rotate(360deg);
+  }
 }
 
-100% {
- transform:translateY(-150px) rotate(360deg);
+/* ====================== MÚSICA ====================== */
+.music-player {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  opacity: 0.95;
 }
 
+.music-player iframe {
+  border-radius: 12px;
 }
