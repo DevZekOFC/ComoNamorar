@@ -35,19 +35,11 @@ document.body.addEventListener('click', () => {
 
 simBtn.addEventListener("click", () => {
 
-  googleNotification.classList.add("show");
+document.getElementById("main-screen").style.display="none";
 
-  setTimeout(() => {
-    googleNotification.classList.remove("show");
-  }, 4000);
+document.getElementById("accepted-screen").style.display="flex";
 
-
-  setTimeout(() => {
-    modal.style.display = "flex";
-  }, 800);
-
-
-  tryPlayMusic();
+tryPlayMusic();
 
 });
 
