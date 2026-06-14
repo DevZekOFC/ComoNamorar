@@ -1,34 +1,53 @@
 const simBtn = document.getElementById("sim");
 const naoBtn = document.getElementById("nao");
 const modal = document.getElementById("modal");
+const emoji = document.querySelector(".emoji"); // Emoji principal
 const music = document.getElementById("romanticMusic");
 
-// ==================== MÚSICA AUTOMÁTICA (Versão Forte) ====================
-function tryPlayMusic() {
-  music.volume = 0.7; // Volume confortável
-  const playPromise = music.play();
+let naoClicks = 0; // Contador de cliques no NÃO
 
+// Emojis progressivamente mais bravos
+const emojisBravos = [
+    "🤧",   // 0 - Inicial
+    "😕",   // 1
+    "🙁",   // 2
+    "😣",   // 3
+    "😠",   // 4
+    "😡",   // 5
+    "🤬",   // 6 - Máximo de raiva
+    "💢"    // 7 - Raiva extrema
+];
+
+// ==================== MÚSICA AUTOMÁTICA ====================
+function tryPlayMusic() {
+  music.volume = 0.7;
+  const playPromise = music.play();
   if (playPromise !== undefined) {
-    playPromise.then(() => {
-      console.log("🎵 Música tocando automaticamente!");
-    }).catch(() => {
-      console.log("Autoplay bloqueado - esperando interação");
-    });
+    playPromise.catch(() => {});
   }
 }
 
-// Múltiplas tentativas agressivas
 window.addEventListener('load', () => {
   tryPlayMusic();
   setTimeout(tryPlayMusic, 400);
   setTimeout(tryPlayMusic, 1200);
-  setTimeout(tryPlayMusic, 2500);
 });
 
-// Clique em qualquer lugar da página também ativa (último recurso)
 document.body.addEventListener('click', () => {
   if (music.paused) tryPlayMusic();
 }, { once: true });
+
+// ==================== NOVO SISTEMA: EMOJI FICANDO BRAVO ====================
+function atualizarEmoji() {
+  const indice = Math.min(naoClicks, emojisBravos.length - 1);
+  emoji.textContent = emojisBravos[indice];
+  
+  // Efeito visual extra quando fica muito bravo
+  if (naoClicks >= 5) {
+    emoji.style.transform = "scale(1.2)";
+    emoji.style.transition = "transform 0.3s";
+  }
+}
 
 // ==================== LÓGICA ORIGINAL ====================
 
@@ -54,9 +73,13 @@ function moverNao(){
   naoBtn.style.top = y + "px";
 }
 
+// Clique passando o mouse (hover)
 naoBtn.addEventListener("mouseover", moverNao);
 
+// Clique direto no botão NÃO
 naoBtn.addEventListener("click", () => {
   moverNao();
+  naoClicks++;                    // Aumenta o contador
+  atualizarEmoji();               // Atualiza o emoji
   tryPlayMusic();
 });
