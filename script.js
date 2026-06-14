@@ -1,68 +1,120 @@
 const simBtn = document.getElementById("sim");
 const naoBtn = document.getElementById("nao");
-const modal = document.getElementById("modal");
 const music = document.getElementById("romanticMusic");
-const googleNotification = document.getElementById("googleNotification");
 
-// ==================== MÚSICA AUTOMÁTICA (Versão Forte) ====================
+
+// ==================== MÚSICA AUTOMÁTICA ====================
+
 function tryPlayMusic() {
-  music.volume = 0.7; // Volume confortável
+
+  music.volume = 0.7;
+
   const playPromise = music.play();
 
   if (playPromise !== undefined) {
+
     playPromise.then(() => {
+
       console.log("🎵 Música tocando automaticamente!");
+
     }).catch(() => {
+
       console.log("Autoplay bloqueado - esperando interação");
+
     });
+
   }
+
 }
 
-// Múltiplas tentativas agressivas
+
+// Tentativas automáticas
+
 window.addEventListener('load', () => {
+
   tryPlayMusic();
+
   setTimeout(tryPlayMusic, 400);
+
   setTimeout(tryPlayMusic, 1200);
+
   setTimeout(tryPlayMusic, 2500);
+
 });
 
-// Clique em qualquer lugar da página também ativa (último recurso)
-document.body.addEventListener('click', () => {
-  if (music.paused) tryPlayMusic();
-}, { once: true });
 
-// ==================== LÓGICA ORIGINAL ====================
+// Qualquer clique ativa música
+
+document.body.addEventListener('click', () => {
+
+  if (music.paused) {
+
+    tryPlayMusic();
+
+  }
+
+}, { once:true });
+
+
+
+
+// ==================== BOTÃO SIM ====================
+
 
 simBtn.addEventListener("click", () => {
 
-document.getElementById("main-screen").style.display="none";
 
-document.getElementById("accepted-screen").style.display="flex";
+  document.getElementById("main-screen").style.display = "none";
 
-tryPlayMusic();
+
+  document.getElementById("accepted-screen").style.display = "flex";
+
+
+  tryPlayMusic();
+
 
 });
 
-function fecharModal(){
-  modal.style.display = "none";
-}
 
-function moverNao(){
-  const container = document.querySelector(".screen");
-  const maxX = container.offsetWidth - 160;
-  const maxY = container.offsetHeight - 100;
 
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY + 120;
 
-  naoBtn.style.position = "absolute";
+
+// ==================== BOTÃO NÃO ====================
+
+
+function moverNao() {
+
+
+  const largura = window.innerWidth - naoBtn.offsetWidth;
+
+  const altura = window.innerHeight - naoBtn.offsetHeight;
+
+
+
+  const x = Math.random() * largura;
+
+  const y = Math.random() * altura;
+
+
+
+  naoBtn.style.position = "fixed";
+
   naoBtn.style.left = x + "px";
+
   naoBtn.style.top = y + "px";
+
+
 }
 
-naoBtn.addEventListener("mouseover", moverNao);
+
 
 naoBtn.addEventListener("click", () => {
+
+
   moverNao();
+
+
   tryPlayMusic();
+
+
 });
