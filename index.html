@@ -1,117 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aceita namorar comigo?</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aceita namorar comigo?</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-  <div class="phone">
-    <div class="screen" id="main-screen">
 
-      <div class="heart" style="left: 12%; animation-delay: 0s; color: #ddd;">🖤</div>
-      <div class="heart" style="left: 28%; animation-delay: 1.5s; color: #bbb;">❤️</div>
-      <div class="heart" style="left: 45%; animation-delay: 3s; color: #ddd;">🖤</div>
-      <div class="heart" style="left: 65%; animation-delay: 0.8s; color: #bbb;">💔</div>
-      <div class="heart" style="left: 78%; animation-delay: 4s; color: #ddd;">❤️</div>
-      <div class="heart" style="left: 20%; animation-delay: 5.5s; color: #bbb;">🖤</div>
+<div class="phone">
 
 
-      <div class="emoji">🤧</div>
+  <!-- TELA ORIGINAL -->
+
+  <div class="screen" id="main-screen">
 
 
-      <h1>
-        VOCÊ ACEITARIA NAMORAR COMIGO?
-      </h1>
+    <div class="heart" style="left:12%;animation-delay:0s;color:#ddd;">🖤</div>
+    <div class="heart" style="left:28%;animation-delay:1.5s;color:#bbb;">❤️</div>
+    <div class="heart" style="left:45%;animation-delay:3s;color:#ddd;">🖤</div>
+    <div class="heart" style="left:65%;animation-delay:.8s;color:#bbb;">💔</div>
+    <div class="heart" style="left:78%;animation-delay:4s;color:#ddd;">❤️</div>
+    <div class="heart" style="left:20%;animation-delay:5.5s;color:#bbb;">🖤</div>
 
 
-      <div class="buttons">
-
-        <button id="sim">
-          SIM
-        </button>
-
-        <button id="nao">
-          NÃO
-        </button>
-
-      </div>
-
-    </div>
-  </div>
-
-
-
-  <!-- NOTIFICAÇÃO ESTILO GOOGLE -->
-
-  <div class="google-notification" id="googleNotification">
-
-    <div class="notif-icon">
-      💌
+    <div class="emoji">
+      🤧
     </div>
 
 
-    <div class="notif-text">
-
-      <b>Mensagens</b>
-
-      <span>
-        Ele te Ama! ❤️
-      </span>
-
-    </div>
-
-  </div>
+    <h1>
+      VOCÊ ACEITARIA NAMORAR COMIGO?
+    </h1>
 
 
+    <div class="buttons">
 
-
-  <!-- Áudio Automático -->
-
-  <audio id="romanticMusic" loop preload="auto" autoplay>
-
-    <source 
-    src="https://files.catbox.moe/ctyngd.mp3" 
-    type="audio/mpeg">
-
-  </audio>
-
-
-
-
-  <!-- MODAL -->
-
-  <div class="modal" id="modal">
-
-    <div class="modal-content">
-
-
-      <h2>
-        ✨ Valeu bb, meu chuchuzinho kkkkk
-      </h2>
-
-
-      <p>
-        Manda DM que eu tô te esperando ❤️
-      </p>
-
-
-      <button onclick="fecharModal()">
-        OK
+      <button id="sim">
+        SIM
       </button>
 
 
+      <button id="nao">
+        NÃO
+      </button>
+
     </div>
+
 
   </div>
 
 
 
 
-  <script src="script.js"></script>
+  <!-- TELA DE ACEITO -->
+
+  <div class="screen accepted-screen" id="accepted-screen">
+
+
+    <div class="heart" style="left:15%;animation-delay:0s;color:#fff;">❤️</div>
+    <div class="heart" style="left:35%;animation-delay:1s;color:#fff;">💖</div>
+    <div class="heart" style="left:55%;animation-delay:2s;color:#fff;">❤️</div>
+    <div class="heart" style="left:75%;animation-delay:3s;color:#fff;">💗</div>
+
+
+    <div class="emoji">
+      🥰
+    </div>
+
+
+    <h1>
+      EU ACEITO NAMORAR COM VOCÊ ❤️
+    </h1>
+
+
+    <p class="accept-text">
+
+      Valeu bb, meu chuchuzinho kkkkk
+
+      <br><br>
+
+      Manda DM que eu tô te esperando ❤️
+
+    </p>
+
+
+  </div>
+
+
+
+
+</div>
+
+
+
+
+<audio id="romanticMusic" loop preload="auto" autoplay>
+
+<source 
+src="https://files.catbox.moe/ctyngd.mp3"
+type="audio/mpeg">
+
+</audio>
+
+
+
+<script src="script.js"></script>
 
 
 </body>
