@@ -7,7 +7,7 @@ const music = document.getElementById("romanticMusic");
 let naoClicks = 0;
 
 // Emojis mais bravos
-const emojisBravos = ["🤧", "😕", "🙁", "😣", "😠", "😡", "🤬", "💢"];
+const emojisBravos = ["🤧", "😕", "🙁", "😣", "😠", "😡", "🤬", "💢", "😭"];
 
 // ==================== MÚSICA ====================
 function tryPlayMusic() {
